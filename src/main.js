@@ -1,16 +1,20 @@
-import { journal } from './journal.js';
+import { Entry } from './journal.js';
 import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 
 $(document).ready(function() {
-  $('#jounal-form').submit(function(event){
+  $('#journal-form').submit(function(event){
     event.preventDefault();
-    var goal = $('#goal').val();
-    var output = journal(goal);
-    output.forEach(function(element) {
-    $('#solution').append("<li>" + element + "</li>");
-    });
+
+    let title = $('#title').val();
+    let body = $('#body').val().split('');
+    const currentEntry = new Entry (title, body);
+
+    $(".title").text(title);
+    $(".vowel").text(currentEntry.checkVowels());
+    $(".consonant").text(currentEntry.checkConsonants());
+    $("#result").show();
   });
 });
