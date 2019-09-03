@@ -11,4 +11,9 @@ label {
 #result {
   display: none;
   background-color: darkgray;
+  color: white;
+}
+
+.well {
+  border-radius: 5px;
 }
