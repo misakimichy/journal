@@ -1,16 +1,27 @@
 // Backend logic
-export function journal(goal) {
-  var output = [];
-  for (var i = 1; i <= goal; i++) {
-    if (i % 15 === 0) {
-      output.push("My journal");
-    } else if (i % 3 === 0) {
-      output.push("Hi");
-    } else if (i % 5 === 0) {
-      output.push("Your journal");
-    } else  {
-      output.push(i);
+export function Entry (title, body) {
+  this.title = title;
+  this.body = body;
+}
+
+Entry.prototype.checkVowels = function() {
+  const vowels = ['a', 'i', 'e', 'o', 'u'];
+  let pickVowels = [];
+  for (let letter of this.body) {
+    if(vowels.includes(letter) === true) {
+      pickVowels.push(letter);
     }
   }
-  return output;
-}
+  return pickVowels;
+};
+
+Entry.prototype.checkConsonants = function() {
+  const vowels = ['a', 'i', 'e', 'o', 'u'];
+  let pickConsonants = [];
+  for (let letter of this.body) {
+    if(vowels.includes(letter) === false) {
+      pickConsonants.push(letter);
+    }
+  }
+  return pickConsonants;
+};
