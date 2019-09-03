@@ -10,9 +10,10 @@ Entry.prototype.checkVowels = function() {
   for (let letter of this.body) {
     if(vowels.includes(letter) === true) {
       pickVowels.push(letter);
+      return pickVowels.length;
     }
   }
-  return pickVowels;
+  return pickVowels.length;
 };
 
 Entry.prototype.checkConsonants = function() {
@@ -23,5 +24,5 @@ Entry.prototype.checkConsonants = function() {
       pickConsonants.push(letter);
     }
   }
-  return pickConsonants;
+  return pickConsonants.length;
 };

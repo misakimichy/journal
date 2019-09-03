@@ -13,8 +13,8 @@ $(document).ready(function() {
     const currentEntry = new Entry (title, body);
 
     $(".title").text(title);
-    $(".vowel").text(currentEntry.checkVowels());
-    $(".consonant").text(currentEntry.checkConsonants());
+    $("#vowel").text(currentEntry.checkVowels());
+    $("#consonant").text(currentEntry.checkConsonants());
     $("#result").show();
   });
 });
